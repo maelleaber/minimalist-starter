@@ -29,15 +29,17 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyPlugin([
-      {
-        from: './src/index.html',
-        to: path.resolve(__dirname, 'dist'),
-      },
-      {
-        from: 'src/assets/',
-        to: path.resolve(__dirname, 'dist', 'assets'),
-      },
-    ]),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: './src/index.html',
+          to: path.resolve(__dirname, 'dist'),
+        },
+        {
+          from: 'src/assets/',
+          to: path.resolve(__dirname, 'dist', 'assets'),
+        },
+      ],
+    }),
   ],
 }
