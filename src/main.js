@@ -7,13 +7,17 @@ const canvas = document.createElement('canvas')
 canvas.width = 800
 canvas.height = 500
 const ctx = canvas.getContext('2d')
-ctx.fillStyle = 'white'
-ctx.fillRect(0, 0, 800, 500)
+
 
 // let coord;
 
-function bowlContainer() {
-  
+
+let i = 0 
+
+function loop() {
+
+  ctx.fillStyle = 'white'
+  ctx.fillRect(0, 0, 800, 500)
   ctx.lineCap ="round"
   const bowl = new Path2D()
   bowl.arc(400, 390, 100, 0, Math.PI)
@@ -25,12 +29,9 @@ function bowlContainer() {
 
   ctx.fillStyle ="red"
   ctx.fill(bowl)
-}
 
-
-function noodles(){
-
-  let height = 460 
+  
+  let height = 460 -i
   let width = 15 
   const noodle1 = new Path2D()
   noodle1.rect(360, 0, width, height)
@@ -46,15 +47,15 @@ function noodles(){
   noodle3.rect(420, 0, width, height)
   ctx.fillStyle ='#e1e3ac'
   ctx.fill(noodle3)
+
+  i++ 
+  window.requestAnimationFrame(loop)
 }
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app')
   app.append(canvas)
-  noodles()
-  bowlContainer()
+  loop()
   
 })
 
