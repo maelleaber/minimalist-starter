@@ -9,7 +9,7 @@ const button = document.createElement('button')
 button.innerText = 'Start game'
 
 let isPlaying = true
-let maxHeight = 60
+let maxHeight = 260
 let isEaten = 0
 let startTime
 let time
@@ -68,8 +68,12 @@ function loop() {
     time_min = (time_min < 10) ? "0" + time_min : time_min;
     time_s = (time_s < 10) ? "0" + time_s : time_s;
     console.log('time: ' + time_min + ':' + time_s)
-    prompt('Congrats! You ate everything in ' + time_min + 'm' + time_s + 's. Please enter your name', '')
-    return window.location.reload()
+    // prompt('Congrats! You ate everything in ' + time_min + 'm' + time_s + 's. Please enter your name', '')
+    // return window.location.reload()
+    const prettyTime = time_min + ':' + time_s
+    isPlaying = false
+    sendScore(prettyTime);
+
   }
 
   if(isPlaying == true){
@@ -148,6 +152,17 @@ function sound() {
   
 }
 
+
+function sendScore(score) {
+  fetch('http://localhost:3001/experiment/score', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({title: score})
+  })
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app')
