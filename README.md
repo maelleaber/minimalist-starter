@@ -1,4 +1,4 @@
-# the expérience
+# the experience
 Noodle's Bar is a little game made with Javascript. 
 The user has to make sound after hiting the start button to make disapear the noodles aas fast as possible. 
 
