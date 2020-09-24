@@ -5,9 +5,6 @@ canvas.width = 800
 canvas.height = 500
 const ctx = canvas.getContext('2d')
 
-const button = document.createElement('button')
-button.innerText = 'Start game'
-
 let isPlaying = true
 let maxHeight = 400
 let isEaten = 0
