@@ -9,7 +9,7 @@ const button = document.createElement('button')
 button.innerText = 'Start game'
 
 let isPlaying = true
-let maxHeight = 260
+let maxHeight = 400
 let isEaten = 0
 let startTime
 let time
@@ -18,32 +18,44 @@ let time_min
 
 function loop() {
 
-  ctx.fillStyle = 'white'
+  ctx.fillStyle = 'black'
   ctx.fillRect(0, 0, 800, 500)
   ctx.lineCap = "round"
-
+  
   
   let height = maxHeight - isEaten
   let width = 15
   const noodle1 = new Path2D()
-  noodle1.rect(360, 0, width, height)
+  noodle1.rect(350, 0, width, height)
   ctx.fillStyle = '#e1e3ac'
   ctx.fill(noodle1)
 
   const noodle2 = new Path2D()
-  noodle2.rect(390, 0, width, height)
+  noodle2.rect(380, 0, width, height)
   ctx.fillStyle = '#e1e3ac'
   ctx.fill(noodle2)
 
   const noodle3 = new Path2D()
-  noodle3.rect(420, 0, width, height)
+  noodle3.rect(410, 0, width, height)
   ctx.fillStyle = '#e1e3ac'
   ctx.fill(noodle3)
 
+  const noodle4 = new Path2D()
+  noodle4.rect(440, 0, width, height)
+  ctx.fillStyle = '#e1e3ac'
+  ctx.fill(noodle4)
+  
   const rectangle = new Path2D
   rectangle.rect(300, 400, 200, 100)
-  ctx.fillStyle = 'white'
+  ctx.fillStyle = 'black'
   ctx.fill(rectangle)
+
+  const table = new Path2D
+  table.rect(200, 480, 400, 25)
+  ctx.fillStyle = '#631c00'
+  ctx.fill(table)
+  
+
   const bowl = new Path2D()
   bowl.arc(400, 390, 100, 0, Math.PI)
   ctx.stroke(bowl)
@@ -52,7 +64,7 @@ function loop() {
   ctx.lineTo(500, 390)
   ctx.stroke()
 
-  ctx.fillStyle = "red"
+  ctx.fillStyle = "#f58473"
   ctx.fill(bowl)
 
   if (height < 0) {
@@ -68,18 +80,21 @@ function loop() {
     time_min = (time_min < 10) ? "0" + time_min : time_min;
     time_s = (time_s < 10) ? "0" + time_s : time_s;
     console.log('time: ' + time_min + ':' + time_s)
-    // prompt('Congrats! You ate everything in ' + time_min + 'm' + time_s + 's. Please enter your name', '')
-    // return window.location.reload()
+
+    document.getElementById("game_score").textContent = 'Congrats! You ate everything in ' + time_min + 'm' + time_s + 's. Reload the page to try again'
+  
     const prettyTime = time_min + ':' + time_s
     isPlaying = false
     sendScore(prettyTime);
 
+   
   }
 
   if(isPlaying == true){
     window.requestAnimationFrame(loop)
   }
 }
+
 
 
 function sound() {
@@ -166,15 +181,17 @@ function sendScore(score) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app')
+  const btn = document.getElementById('button')
   app.append(canvas)
-  app.append(button)
-
-  button.addEventListener('click', () => {
+  
+  btn.disabled = false
+  btn.addEventListener('click', () => {
 
     sound()
     var date1 = new Date
     startTime = date1.getTime()
     console.log('start time' + startTime)
+    btn.disabled = true
   
   })
   

@@ -2,19 +2,94 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>let's play</title>
+    <title>Noodle's Bar </title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap" rel="stylesheet">
     <style>
       html,
       body {
         margin: 0;
         height: 100%;
+        display: flex;
+        justify-content: space-around;
+        background-color: black;
       }
+
+      .controls{
+        margin: 70px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .game_name{
+        color: #FDF8FD;
+        font-size: 4vw;
+        font-family: 'Montserrat Alternates';
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        text-shadow: 
+          .1vw 0vw .25vw #FDF8FD, .2vw 0vw .25vw #FDF8FD, .2vw 0vw .25vw #FDF8FD, 
+          .1vw 0vw .1vw #F1EC81, .2vw 0vw 0vw #F1EC81, .2vw 0vw 0vw #F1EC81,
+          .1vw 0vw .1vw #F1EC81, .2vw 0vw .1vw #F1EC81, .2vw 0vw 0vw #F1EC81,
+          .1vw 0vw 1vw #F1EC81, .2vw 0vw 2vw #F1EC81, .2vw 0vw 2vw #F1EC81, .2vw 0vw 5vw #F1EC81,
+          .1vw 0vw .5vw #F2E90B, .2vw 0vw .5vw #F2E90B, .2vw 0vw 6vw #F2E90B, 
+          .1vw 0vw 2vw #F2E90B, .2vw 0vw 5vw #F2E90B, .2vw 0vw 0vw #F2E90B;
+      }
+      .explanations{
+        display: block;
+        width: 350px;
+        text-align: center;
+        color: white;
+        font-family: 'Montserrat';
+        font-size: 1rem;
+      }
+      button{
+        width: 190px;
+        height: 50px;
+        margin-top: 40px;
+        background-color: black;
+        color: #F2E90B;
+        font-family: 'Montserrat';
+        font-size: 1.3rem;
+        border: solid 3px #F2E90B;
+        border-radius: 50px;
+        outline: none;
+        cursor: pointer;
+        transition: 0.1s ease-in-out;
+      }
+
+      button:hover{
+        -webkit-box-shadow: 0px 0px 42px -3px rgba(242,233,11,1);
+        -moz-box-shadow: 0px 0px 42px -3px rgba(242,233,11,1);
+        box-shadow: 0px 0px 42px -3px rgba(242,233,11,1);
+      }
+
+      #game_score{
+        margin-top: 60px;
+        width: 350px;
+        color: white;
+        font-family: 'Montserrat';
+        font-size: 1rem;
+        text-align: center;
+      }
+
       
     </style>
   </head>
   <body >
+    <div class="controls">
+      <h1 class="game_name">Noodle's Bar</h1>
+      <p class="explanations">You have to eat the noodles as fast as possible. To do so, click 'START GAME' and make a slurp sound. Keep slurping until everything is gone! <br> Be careful not to faint!</p>
+      <button id="button">START GAME</button>
+      <div id="game_score"></div>
+
+    </div>
+     
     <div id="app">
-      <!-- <h1 style="color: white;">Noodles Bar</h1> -->
+     
       
     </div>
     <script src="bundle.js" charset="utf-8"></script>
