@@ -76,21 +76,35 @@
         text-align: center;
       }
 
+      .see_score{
+        display: block;
+        width: 180px;
+        height: 20px;
+        margin-top: 20px;
+        border-radius: 50px;
+        border: solid white 2px;
+        font-family: 'Montserrat';
+        color : white;
+        text-align: center;
+        text-decoration: none;
+      }
+
       
     </style>
   </head>
   <body >
     <div class="controls">
-      <h1 class="game_name">Noodle's Bar</h1>
+      <img src="assets/noodles.svg" alt="" class="noodle"> 
+      <h1 class="game_name">Noodle's Bar </h1>
+      
       <p class="explanations">You have to eat the noodles as fast as possible. To do so, click 'START GAME' and make a slurp sound. Keep slurping until everything is gone! <br> Be careful not to faint!</p>
       <button id="button">START GAME</button>
+      <a href="http://localhost:3001/experiment" class="see_score" target="_blank">See previous scores</a>
       <div id="game_score"></div>
 
     </div>
      
     <div id="app">
-     
-      
     </div>
     <script src="bundle.js" charset="utf-8"></script>
     
